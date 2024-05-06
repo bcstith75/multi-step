@@ -1,0 +1,129 @@
+{% load static %}
+
+<!-- {% load static tailwind_tags %} -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+
+    <!-- {% tailwind_css %} -->
+
+    <link href="{% static 'src/styles.css' %}" rel="stylesheet">
+
+
+    <title>Multi Step website</title>
+  </head>
+  <body class="overflow-x-hidden bg-lightBlue">
+
+  <!---Background Container-->
+  <main class="flex justify-center min-h-screen bg-lightBlue md:items-center">
+
+    <!-- Set the url paths -->
+    {% url 'index' as indexUrl %}
+    {% url 'plan' as planUrl %}
+    {% url 'add' as addUrl %}
+    {% url 'summary' as summaryUrl %}
+
+    <!---MODAL-->
+   <div class="relative flex flex-col m-0 mb-4 md:mb-0 space-y-10 bg-lightBlue
+   rounded-2xl md:shadow-2xl md:flex-row md:space-y-0 md:m-0 md:bg-white md:p-3">
+
+  <!--Column 1 Mobile -->
+  <div class="bg-[url('../images/bg-sidebar-mobile.svg')] h-[172px] w-[375px] py-7 flex items-start justify-center md:hidden">
+
+    <div class="flex flex-row space-x-5 items-center -top-10">
+
+      
+
+      <a href="{{ indexUrl }}" class="{% if request.path == indexUrl %} bg-pastelBlue {% else %}border border-pastelBlue hover:bg-pastelBlue text-alabaster{% endif %}  rounded-full px-4 py-2 flex items-center font-bold">1</a>
+
+      <a href="{{ planUrl }}" class="{% if request.path == planUrl %} bg-pastelBlue {% else %}border border-pastelBlue hover:bg-pastelBlue text-alabaster{% endif %}  rounded-full px-4 py-2 flex items-center font-bold">2</a>
+
+      <a href="{{ addUrl }}" class="{% if request.path == addUrl %} bg-pastelBlue {% else %}border border-pastelBlue hover:bg-pastelBlue text-alabaster{% endif %}  rounded-full px-4 py-2 flex items-center font-bold">3</a>
+
+      <a href="{{ summaryUrl }}" class="{% if request.path == summaryUrl %} bg-pastelBlue {% else %}border border-pastelBlue hover:bg-pastelBlue text-alabaster{% endif %}  rounded-full px-4 py-2 flex items-center font-bold">4</a>
+
+    </div>
+
+  </div>
+
+    <!--Column 1 Desktop -->
+    <div class="bg-[url('../images/bg-sidebar-desktop.svg')] h-[568px] w-[274px] px-5 py-10 hidden md:block">
+
+      <div class="flex justify-center flex-col space-y-8">
+
+        <!--- nav 1 -->
+
+        
+        <div>
+          <a href="{{ indexUrl }}" class="flex flex-row space-x-4 items-center">
+            <div class= "{% if request.path == indexUrl %} bg-pastelBlue {% else %}border border-pastelBlue hover:bg-pastelBlue text-alabaster{% endif %} rounded-full px-4 py-2 flex items-center font-bold">1</div>
+            <div class="flex flex-col">
+              <h4 class="uppercase text-pastelBlue text-xs">step 1</h4>
+              <p class="uppercase text-sm text-alabaster font-bold">your info</p>
+            </div>
+          </a>
+        </div>
+
+        <!--- nav 2 -->
+        <div>
+          <a href="{{ planUrl }}" class="flex flex-row space-x-4 items-center">
+            <div class="{% if request.path == planUrl %} bg-pastelBlue {% else %}border border-pastelBlue hover:bg-pastelBlue text-alabaster{% endif %} hover:text-black  rounded-full px-4 py-2 flex items-center font-bold">2</div>
+            <div class="flex flex-col">
+              <h4 class="uppercase text-pastelBlue text-xs">step 2</h4>
+              <p class="uppercase text-sm text-alabaster font-bold">select plan</p>
+            </div>
+          </a>
+        </div>
+
+          <!--- nav 3 -->
+          <div>
+            <a href="{{ addUrl }}" class="flex flex-row space-x-4 items-center">
+              <div class="{% if request.path == addUrl %} bg-pastelBlue {% else %}border border-pastelBlue hover:bg-pastelBlue text-alabaster{% endif %} hover:text-black rounded-full px-4 py-2 flex items-center font-bold">3</div>
+              <div class="flex flex-col">
+                <h4 class="uppercase text-pastelBlue text-xs">step 3</h4>
+                <p class="uppercase text-sm text-alabaster font-bold">add-ons</p>
+              </div>
+            </a>
+          </div>
+
+           <!--- nav 4 --> 
+           <div>
+            <a href="{{ summaryUrl }}" class="flex flex-row space-x-4 items-center">
+              <div class="{% if request.path == summaryUrl %} bg-pastelBlue {% else %}border border-pastelBlue hover:bg-pastelBlue text-alabaster{% endif %} hover:text-black rounded-full px-4 py-2 flex items-center font-bold">4</div>
+              <div class="flex flex-col">
+                <h4 class="uppercase text-pastelBlue text-xs">step 4</h4>
+                <p class="uppercase text-sm text-alabaster font-bold">summary</p>
+              </div>
+            </a>
+          </div>
+
+
+
+      </div>
+
+    </div>
+
+    <!---Column 2-->
+
+    <div class="py-10 px-10 w-[340px] absolute rounded-xl md:rounded-none  left-4 top-16 bg-white  md:w-[648px] md:static">
+      {% block content%}  {% endblock %}
+    </div>
+
+
+    </div>
+
+
+  </main>
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+  </html>

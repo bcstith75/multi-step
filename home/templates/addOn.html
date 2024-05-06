@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="flex flex-col space-y-2 py-6">
+  <h1 class="text-2xl font-bold text-marineBlue">Pick add-ons</h1>
+
+  <p class="text-sm text-coolGray">Add-ons help enhance your gaming experience</p>
+</div>
+
+<div class="flex flex-col w-full space-y-6">
+
+  <!--Box 1-->
+  <div class="border border-coolGray flex flex-row items-center justify-between rounded-xl py-4 px-4 hover:border-marineBlue">
+    <div class="flex flex-row space-x-4 items-center">
+      <input type="checkbox" name="add-on" id="service" class="bg-marineBlue text-white p-3 w-4 h-4">
+      <label for="service" class="flex flex-col">
+        <h4 class="text-marineBlue font-bold">Online service</h4>
+        <p class="text-xs text-coolGray">Acces to multiplayer games</p>
+      </label>
+    </div>
+    <div class="text-sm text-coolGray">+$1/mo</div>
+  </div>
+
+    <!--Box 2-->
+    <div class="border border-coolGray flex flex-row items-center justify-between rounded-xl py-4 px-4 hover:border-marineBlue">
+      <div class="flex flex-row space-x-4 items-center">
+        <input type="checkbox" name="add-on" id="service" class="bg-marineBlue text-white p-3 w-4 h-4">
+        <label for="service" class="flex flex-col">
+          <h4 class="text-marineBlue font-bold">Larger storage</h4>
+          <p class="text-xs text-coolGray">Extra 1TB of cloud save</p>
+        </label>
+      </div>
+      <div class="text-sm text-coolGray">+$2/mo</div>
+    </div>
+
+        <!--Box 3-->
+        <div class="border border-coolGray flex flex-row items-center justify-between rounded-xl py-4 px-4 hover:border-marineBlue">
+          <div class="flex flex-row space-x-4 items-center">
+            <input type="checkbox" name="add-on" id="service" class="bg-marineBlue text-white p-3 w-4 h-4">
+            <label for="service" class="flex flex-col">
+              <h4 class="text-marineBlue font-bold">Customizable profile</h4>
+              <p class="text-xs text-coolGray">Custom theme on your profile</p>
+            </label>
+          </div>
+          <div class="text-sm text-coolGray">+$4/mo</div>
+        </div>
+
+</div>
+
+<div class="flex flex-row justify-between py-4 items-center">
+  <div class="py-4">
+    <a href="{% url 'add' %}" class="text-sm font-bold text-marineBlue">Go Back</a>
+  </div>
+
+  <div class="">
+    <a href="{% url 'summary'%}" class="bg-marineBlue text-white rounded-lg px-8 py-4">Next Step</a>
+  </div>
+</div>
+
+{% endblock %}
